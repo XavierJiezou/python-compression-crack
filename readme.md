@@ -1,13 +1,13 @@
-<!-- TOC -->autoauto- [软件下载](#软件下载)auto- [破解测试](#破解测试)auto- [文件说明](#文件说明)auto- [项目简介](#项目简介)auto- [项目地址](#项目地址)auto- [破解思路](#破解思路)auto- [开发环境](#开发环境)auto- [生成字典](#生成字典)auto- [读取密码](#读取密码)auto- [尝试破解](#尝试破解)auto    - [尝试破解zip格式的压缩包](#尝试破解zip格式的压缩包)auto    - [尝试破解rar格式的压缩包](#尝试破解rar格式的压缩包)auto- [完整代码](#完整代码)auto- [软件打包](#软件打包)auto- [引用参考](#引用参考)autoauto<!-- /TOC -->
+<!-- TOC -->autoauto- [1. 软件下载](#1-软件下载)auto- [2. 破解测试](#2-破解测试)auto- [3. 文件说明](#3-文件说明)auto- [4. 项目简介](#4-项目简介)auto- [5. 项目地址](#5-项目地址)auto- [6. 破解思路](#6-破解思路)auto- [7. 开发环境](#7-开发环境)auto- [8. 生成字典](#8-生成字典)auto- [9. 读取密码](#9-读取密码)auto- [10. 尝试破解](#10-尝试破解)auto    - [10.1. 尝试破解zip格式的压缩包](#101-尝试破解zip格式的压缩包)auto    - [10.2. 尝试破解rar格式的压缩包](#102-尝试破解rar格式的压缩包)auto- [11. 完整代码](#11-完整代码)auto- [12. 软件打包](#12-软件打包)auto- [13. 引用参考](#13-引用参考)autoauto<!-- /TOC -->
 
 【python】80行代码实现压缩包密码破解软件，支持zip和rar（多线程高速撞库）
-# 软件下载
+# 1. 软件下载
 > win64：[https://ghgxj.lanzous.com/iEpZUj3998d](https://ghgxj.lanzous.com/iEpZUj3998d)
 
 `mac`、`linux`和`win32`用户请参考打包教程使用源代码打包。
-# 破解测试
+# 2. 破解测试
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020120519515547.gif#pic_center)
-# 文件说明
+# 3. 文件说明
 - `run.exe`：压缩包密码破解软件，支持`zip`和`rar`格式
 - `pwd.txt`：包含所有`3`位数的密码字典，从`000`到`999`
 - `res.txt`：破解成功后保存密码的文件
@@ -18,17 +18,17 @@
 - `app.ico`：软件图标
 - `gan.py`：生成密码字典的代码
 - `readme.md`：项目说明文件
-# 项目简介
+# 4. 项目简介
 这是一个基于`python`开发的压缩包密码破解软件，利用多线程技术高速地读取密码字典并对压缩包尝试破解。
-# 项目地址
+# 5. 项目地址
 > github: [https://github.com/XavierJiezou/python-compression-crack](https://github.com/XavierJiezou/python-compression-crack)
 
-# 破解思路
+# 6. 破解思路
 压缩包加密算法基本上都是不可逆的，即我们不能在算法层面上推理出它的明文。所以我们只能用穷举法不断的碰撞，大白话就是随机生成很多密码，然后一个一个的试。具体思路如下：
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201205231055763.png#pic_center)
 
-# 开发环境
+# 7. 开发环境
 我们用到的模块有：
 ```python
 from unrar.rarfile import RarFile
@@ -73,7 +73,7 @@ D:\Program Files (x86)\UnrarDLL
 **顺便一提：**
 
 解压`rar`文件时，我们用的模块是`unrar`里面的`rarfile`，其实还有个直接叫`rarfile`的包，但是那个`rarfile`包依赖`unrar`环境，配置还很复杂，所以我直接放弃了，用`unrar`即可。
-# 生成字典
+# 8. 生成字典
 这里我生成了一个包含所有三位数的字典，并按行保存到`pwd.txt`文件中。
 ```python
 f = open('pwd.txt', 'w')
@@ -90,7 +90,7 @@ f.close()
 这里再推荐一个提供密码字典下载的网站：
 > [https://wiki.skullsecurity.org/Passwords](https://wiki.skullsecurity.org/Passwords)
 
-# 读取密码
+# 9. 读取密码
 密码字典一般都很大，假如你用的密码字典是`43GB`，直接读整个文件的话可能会导致内存溢出，所以我们一般是按行读，读一行处理一行，处理完成后指针会自动帮你定位到下一行，往复循环即可，具体`python`实现如下：
 ```python
 def crack(self, funcname):
@@ -100,8 +100,8 @@ def crack(self, funcname):
             pwd = book.readline().strip()
             tp.submit(funcname, pwd)
 ```
-# 尝试破解
-## 尝试破解zip格式的压缩包
+# 10. 尝试破解
+## 10.1. 尝试破解zip格式的压缩包
 ```python
 def zip_crack(self, pwd):
     runtime = self.show()
@@ -117,7 +117,7 @@ def zip_crack(self, pwd):
     except:
         pass
 ```
-## 尝试破解rar格式的压缩包
+## 10.2. 尝试破解rar格式的压缩包
 ```python
 def rar_crack(self, pwd):
     runtime = self.show()
@@ -132,7 +132,7 @@ def rar_crack(self, pwd):
     except:
         pass
 ```
-# 完整代码
+# 11. 完整代码
 ```python
 # run.py
 from unrar.rarfile import RarFile
@@ -214,7 +214,7 @@ class CompressionCrack(object):
 if __name__ == "__main__":
     CompressionCrack().main()
 ```
-# 软件打包
+# 12. 软件打包
 推荐在`pipenv`创建的虚拟环境下打包，这样打包的体积会很小，具体打包教程如下：
 1. 执行命令`pip install pipenv`安装`pipenv`
 2. `cd`到项目路径，运行命令`pipenv install`创建虚拟环境
@@ -230,5 +230,5 @@ if __name__ == "__main__":
 然后修改pipenv创建的虚拟环境里面的unrar的代码，具体是修改`C:\Users\xxx\.virtualenvs\python-compression-crack-ZMK49n5q\Lib\site-packages\unrar`路径下的`unrarlib.py`文件，将第33行代码由`lib_path = os.environ.get('UNRAR_LIB_PATH', None)`改为`lib_path = 'UnRAR64.dll'`。
 
 好了，可以执行打包命令了：`pyinstaller -F -i app.ico run.py`。
-# 引用参考
+# 13. 引用参考
 > [https://blog.csdn.net/qq_42951560/article/details/110097655](https://blog.csdn.net/qq_42951560/article/details/110097655)
