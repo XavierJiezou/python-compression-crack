@@ -22,19 +22,8 @@
 
 # 破解思路
 压缩包加密算法基本上都是不可逆的，即我们不能在算法层面上推理出它的明文。所以我们只能用穷举法不断的碰撞，大白话就是随机生成很多密码，然后一个一个的试。具体思路如下：
-```mermaid
-flowchat
-st=>start: 开始
-e=>end: 结束
-op=>operation: 按行从密码字典中读取密码
-op1=>operation: My Operation
-or=>operation: x
-cond=>condition: 破解成功？
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20201205231055763.png#pic_center)
 
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
 # 开发环境
 我们用到的模块有：
 ```python
