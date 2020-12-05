@@ -2,3 +2,4 @@ build/
 dist/
 Pipfile
 *.spec
+gh-md-toc.exe
