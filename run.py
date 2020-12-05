@@ -13,8 +13,8 @@ import os
 
 class CompressionCrack(object):
     def __init__(self):
-        self.filename = input('请输入压缩文件的绝对路径: ')
-        self.bookname = input('请输入密码字典的绝对路径: ')
+        self.filename = input('请输入压缩文件的绝对路径: ').replace('\\', '/')
+        self.bookname = input('请输入密码字典的绝对路径: ').replace('\\', '/')
         self.filename = eval(self.filename) if '"' in self.filename else self.filename
         self.bookname = eval(self.bookname) if '"' in self.bookname else self.bookname
         self.startTime = time.time()
