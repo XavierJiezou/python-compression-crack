@@ -1,3 +1,5 @@
+<!-- TOC -->autoauto- [软件下载](#软件下载)auto- [破解测试](#破解测试)auto- [文件说明](#文件说明)auto- [项目简介](#项目简介)auto- [项目地址](#项目地址)auto- [破解思路](#破解思路)auto- [开发环境](#开发环境)auto- [生成字典](#生成字典)auto- [读取密码](#读取密码)auto- [尝试破解](#尝试破解)auto    - [尝试破解zip格式的压缩包](#尝试破解zip格式的压缩包)auto    - [尝试破解rar格式的压缩包](#尝试破解rar格式的压缩包)auto- [完整代码](#完整代码)auto- [软件打包](#软件打包)auto- [引用参考](#引用参考)autoauto<!-- /TOC -->
+
 【python】80行代码实现压缩包密码破解软件，支持zip和rar（多线程高速撞库）
 # 软件下载
 > win64：[https://ghgxj.lanzous.com/iEpZUj3998d](https://ghgxj.lanzous.com/iEpZUj3998d)
