@@ -43,6 +43,7 @@ pip install unrar
 ```
 根据[pypi](https://pypi.org/project/unrar/)官网可知，安装后还需要配置一下库文件才能正常使用：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201205200355465.png)
+
 **具体配置教程如下：（windows）**
 
 1、下载库文件的压缩包
@@ -50,6 +51,7 @@ pip install unrar
 
 2、选择解压路径`D:\Program Files (x86)\UnrarDLL`，点击`Install`解压
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201205200645767.png)
+
 3、解压后的主要**目录结构**如下：
 ```
 D:\Program Files (x86)\UnrarDLL
@@ -210,8 +212,6 @@ if __name__ == "__main__":
     CompressionCrack().main()
 ```
 # 软件打包
-让不懂编程的人也能用。打包之前，也需要配置一下环境。
-
 推荐在`pipenv`创建的虚拟环境下打包，这样打包的体积会很小，具体打包教程如下：
 1. 执行命令`pip install pipenv`安装`pipenv`
 2. `cd`到项目路径，运行命令`pipenv install`创建虚拟环境
@@ -220,7 +220,7 @@ if __name__ == "__main__":
 5. 安装打包工具：`pip install pyinstaller`
 6. 执行打包命令：`pyinstaller -F -i app.ico run.py`
 
-==第6步执行打包命令前先停一下==
+**第6步执行打包命令前先停一下。**
 
 `unrar`模块依赖库文件`UnRAR64.dll`，所以先把`UnRAR64.dll`复制到项目路径下（`win32`复制`UnRAR.dll`）。
 
