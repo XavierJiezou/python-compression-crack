@@ -1,4 +1,9 @@
-# 最终效果![在这里插入图片描述](https://img-blog.csdnimg.cn/2020120519515547.gif#pic_center)
+# 软件下载
+> win64：[https://ghgxj.lanzous.com/iEpZUj3998d](https://ghgxj.lanzous.com/iEpZUj3998d)
+
+`mac`、`linux`和`win32`用户请参考打包教程使用源代码打包。
+# 破解测试
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020120519515547.gif#pic_center)
 # 文件说明
 - `run.exe`：压缩包密码破解软件，支持`zip`和`rar`格式
 - `pwd.txt`：包含所有`3`位数的密码字典，从`000`到`999`
@@ -8,10 +13,8 @@
 - `run.py`：`python`源码
 - `UnRAR64.dll`：`rar`解压依赖库文件
 - `app.ico`：软件图标
-- `gan.py`：生产密码字典的代码
+- `gan.py`：生成密码字典的代码
 - `readme.md`：项目说明文件
-# 软件下载
-> win64：[https://ghgxj.lanzous.com/iEpZUj3998d](https://ghgxj.lanzous.com/iEpZUj3998d)
 # 项目简介
 这是一个基于`python`开发的压缩包密码破解软件，利用多线程技术高速地读取密码字典并对压缩包尝试破解。
 # 项目地址
