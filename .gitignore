@@ -1,0 +1,4 @@
+build/
+dist/
+Pipfile
+*.spec
