@@ -78,14 +78,14 @@ for i in l:
             f.write(i+j+k+'\n')
 f.close()
 ```
-当然，实际情况是很复杂的。密码可能不止三位，并且不仅包含数字，还有字母和特殊字符等。你可以在我的代码基本上做些修改，生成更为复杂的密码字典。如果你不想自己写代码，我这里也为大家准备好了一个[43G的大字典](https://blog.csdn.net/qq_42554007/article/details/108271757)（你下载的是压缩过的只有80MB，下载后请解压）：
+当然，实际情况是很复杂的。密码可能不止三位，并且不仅包含数字，还有字母和特殊字符等。你可以在我的代码基础上做些修改，生成更为复杂的密码字典。如果你不想自己写代码，我这里也为大家准备好了一个[43G的大字典](https://blog.csdn.net/qq_42554007/article/details/108271757)（你下载的是压缩过的只有80MB，下载后请解压）：
 > 43G大字典：[https://ghgxj.lanzous.com/i8JR0j33r3a](https://ghgxj.lanzous.com/i8JR0j33r3a)
 
 这里再推荐一个提供密码字典下载的网站：
 > [https://wiki.skullsecurity.org/Passwords](https://wiki.skullsecurity.org/Passwords)
 
 # 读取密码
-密码字典一般都很大，假如你用的密码字典是`43GB`，直接读整个文件的话可能会导致内存溢出，所以我们一般是按行读，读一行处理一行，处理完成后再指针会自动帮你定位到下一行，往复循环即可，具体`python`实现如下：
+密码字典一般都很大，假如你用的密码字典是`43GB`，直接读整个文件的话可能会导致内存溢出，所以我们一般是按行读，读一行处理一行，处理完成后指针会自动帮你定位到下一行，往复循环即可，具体`python`实现如下：
 ```python
 def crack(self, funcname):
 	book = open(self.bookname)
@@ -215,12 +215,11 @@ if __name__ == "__main__":
 1. 执行命令`pip install pipenv`安装`pipenv`
 2. `cd`到项目路径，运行命令`pipenv install`创建虚拟环境
 3. 运行命令`pipenv shell`激活虚拟环境
-4. 安装项目开发中用到第三方模块：`pip install unrar`
+4. 安装项目开发中用到的第三方模块：`pip install unrar`
 5. 安装打包工具：`pip install pyinstaller`
-**这里停一下！！！**
 6. 执行打包命令：`pyinstaller -F -i app.ico run.py`
 
-执行打包命令前先停一下。
+==第6步执行打包命令前先停一下==
 
 `unrar`模块依赖库文件`UnRAR64.dll`，所以先把`UnRAR64.dll`复制到项目路径下（`win32`复制`UnRAR.dll`）。
 
