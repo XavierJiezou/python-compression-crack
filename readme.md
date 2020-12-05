@@ -1,3 +1,4 @@
+【python】80行代码实现压缩包密码破解软件，支持zip和rar（多线程高速撞库）
 # 软件下载
 > win64：[https://ghgxj.lanzous.com/iEpZUj3998d](https://ghgxj.lanzous.com/iEpZUj3998d)
 
