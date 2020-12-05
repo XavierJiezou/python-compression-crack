@@ -40,7 +40,7 @@ class CompressionCrack(object):
             zip_file.pwd = pwd.encode()
             zip_file.extractall()
             print(f'破解已完成: {runtime} 压缩密码: {pwd}')
-            with open('res.txt','w') as f:
+            with open('res.txt', 'w') as f:
                 f.write(pwd)
             os._exit(0)
         except:
@@ -53,7 +53,7 @@ class CompressionCrack(object):
             rar_file = RarFile(self.filename, pwd=pwd)
             rar_file.extractall()
             print(f'破解已完成: {runtime} 压缩密码: {pwd}')
-            with open('res.txt','w') as f:
+            with open('res.txt', 'w') as f:
                 f.write(pwd)
             os._exit(0)
         except:
@@ -65,7 +65,6 @@ class CompressionCrack(object):
             while True:
                 pwd = book.readline().strip()
                 tp.submit(funcname, pwd)
-
 
     def main(self):
         if self.filename.endswith('.zip'):
