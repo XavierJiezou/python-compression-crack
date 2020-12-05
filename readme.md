@@ -92,7 +92,7 @@ f.close()
 密码字典一般都很大，假如你用的密码字典是`43GB`，直接读整个文件的话可能会导致内存溢出，所以我们一般是按行读，读一行处理一行，处理完成后指针会自动帮你定位到下一行，往复循环即可，具体`python`实现如下：
 ```python
 def crack(self, funcname):
-	book = open(self.bookname)
+    book = open(self.bookname)
     with cf.ThreadPoolExecutor(12) as tp:
         while True:
             pwd = book.readline().strip()
